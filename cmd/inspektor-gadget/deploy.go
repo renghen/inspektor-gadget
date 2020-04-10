@@ -74,6 +74,10 @@ spec:
         imagePullPolicy: Always
         command: [ "/entrypoint.sh" ]
         env:
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
           - name: TRACELOOP_NODE_NAME
             valueFrom:
               fieldRef:
@@ -138,7 +142,7 @@ spec:
 `
 
 type parameters struct {
-	Image 	string
+	Image   string
 	Version string
 }
 
